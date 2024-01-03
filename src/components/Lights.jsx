@@ -1,5 +1,4 @@
-export default function Lights()
-{
+const Lights =()=> {
     return <>
         <directionalLight
             castShadow
@@ -16,3 +15,5 @@ export default function Lights()
         <ambientLight intensity={ 1.5 } />
     </>
 }
+
+export default Lights 
