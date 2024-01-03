@@ -3,18 +3,20 @@ import { useRef, useState } from 'react'
 import { useFrame } from "@react-three/fiber"
 import * as THREE from 'three'
 
-const BlockSpinner =(props)=> {
+const BlockLimbo =(props)=> {
 
     const obstacle = useRef()
-    const [ speed ] = useState(()=>(Math.random() + 0.2) * (Math.random() < 0.5 ? -1 : 1))
+    const [ timeOffset ] = useState(()=>(Math.random() * Math.PI * 2))
 
-    // BlockSpinner rotation
+    // BlockLimbo animation
     useFrame((state)=> {
         const time = state.clock.getElapsedTime()
+
+        const y = Math.sin(time + timeOffset) + 1.15
+
+        obstacle.current.setNextKinematicTranslation({x: props.position[0], y: props.position[1] + y, z: props.position[2]})
         
-        const rotation = new THREE.Quaternion()
-        rotation.setFromEuler(new THREE.Euler(0, time * speed, 0))
-        obstacle.current.setNextKinematicRotation(rotation)
+        
     })
 
     return <group position={props.position}>
@@ -48,4 +50,4 @@ const BlockSpinner =(props)=> {
     </group>
 }
 
-export default BlockSpinner
+export default BlockLimbo
