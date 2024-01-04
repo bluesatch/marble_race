@@ -8,6 +8,9 @@ import { Physics } from '@react-three/rapier'
 */
 import Lights from './components/Lights.jsx'
 import Level from './components/Level.jsx'
+import BlockSpinner from './components/BlockSpinner.jsx'
+import BlockAxe from './components/BlockAxe.jsx'
+import BlockLimbo from './components/BlockLimbo.jsx'
 
 const Experience =()=> {
     return <>
@@ -17,7 +20,7 @@ const Experience =()=> {
         <Physics debug>
             <Lights />
 
-            <Level />
+            <Level count={5} types={ [ BlockSpinner, BlockAxe, BlockLimbo ] }/>
         </Physics>
 
     </>
