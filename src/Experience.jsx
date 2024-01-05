@@ -8,21 +8,19 @@ import { Physics } from '@react-three/rapier'
 */
 import Lights from './components/Lights.jsx'
 import Level from './components/Level.jsx'
-// import BlockSpinner from './components/BlockSpinner.jsx'
-// import BlockAxe from './components/BlockAxe.jsx'
-// import BlockLimbo from './components/BlockLimbo.jsx'
+import Player from './components/Player.jsx'
 
 const Experience =()=> {
     return <>
 
         <OrbitControls makeDefault />
 
-        <Physics debug>
+        <Physics debug={ false }>
             <Lights />
 
             {/* <Level count={5} types={ [ BlockSpinner, BlockAxe, BlockLimbo ] }/> */}
             <Level />
-            
+            <Player />
         </Physics>
 
     </>
