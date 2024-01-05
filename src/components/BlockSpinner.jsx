@@ -1,4 +1,4 @@
-import { RigidBody } from "@react-three/rapier"
+import { RigidBody} from "@react-three/rapier"
 import { useRef, useState } from 'react'
 import { useFrame } from "@react-three/fiber"
 import * as THREE from 'three'
