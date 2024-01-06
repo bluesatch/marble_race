@@ -1,5 +1,6 @@
-import { OrbitControls } from '@react-three/drei'
+
 import { Physics } from '@react-three/rapier'
+import useGame from './stores/useGame'
 /*
     In the latest versions of @react-three/rapier, the debug mode 
     is activated using the debug attribute (not <Debug>)
@@ -11,15 +12,18 @@ import Level from './components/Level.jsx'
 import Player from './components/Player.jsx'
 
 const Experience =()=> {
+
+    const blocksCount = useGame(state => state.blocksCount)
+    const blocksSeed = useGame(state => state.blocksSeed)
     return <>
 
-        <OrbitControls makeDefault />
+        <color args={ [ '#bdedfc'] } attach="background" />
 
         <Physics debug={ false }>
             <Lights />
 
             {/* <Level count={5} types={ [ BlockSpinner, BlockAxe, BlockLimbo ] }/> */}
-            <Level />
+            <Level count={blocksCount} seed={blocksSeed} />
             <Player />
         </Physics>
 

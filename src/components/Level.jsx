@@ -7,6 +7,7 @@ import BlockAxe from './BlockAxe'
 import BlockEnd from './BlockEnd'
 import Bounds from './Bounds'
 
+
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
 
 const floor1Material = new THREE.MeshStandardMaterial({ color: 'forestgreen'})
@@ -14,7 +15,7 @@ const floor2Material = new THREE.MeshStandardMaterial({ color: 'greenyellow'})
 const obstacleMaterial = new THREE.MeshStandardMaterial({ color: 'dodgerblue'})
 const wallMaterial = new THREE.MeshStandardMaterial({ color: 'rebeccapurple'})
 
-const Level =({ count = 5, types = [ BlockSpinner , BlockLimbo , BlockAxe ] })=> {
+const Level =({ count = 5, types = [ BlockSpinner , BlockLimbo , BlockAxe ], seed = 0 })=> {
 
     const blocks = useMemo(()=> {
         const blocks = []
@@ -24,7 +25,7 @@ const Level =({ count = 5, types = [ BlockSpinner , BlockLimbo , BlockAxe ] })=>
             blocks.push(type)
         }
         return blocks
-    }, [ count, types ])
+    }, [ count, types, seed ])
 
     return <>
     
@@ -55,8 +56,6 @@ const Level =({ count = 5, types = [ BlockSpinner , BlockLimbo , BlockAxe ] })=>
             geometry={boxGeometry}
             material={wallMaterial}
             />
-
-
     </>
 }
 

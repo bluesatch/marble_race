@@ -1,4 +1,4 @@
-import { useGLTF } from "@react-three/drei"
+import { Text, useGLTF } from "@react-three/drei"
 import { RigidBody } from "@react-three/rapier"
 
 const BlockEnd =(props)=> {
@@ -9,6 +9,14 @@ const BlockEnd =(props)=> {
 
     return <group position={props.position}>
 
+        <Text 
+            font="/bebas-neue-v9-latin-regular.woff"
+            scale={ 1 }
+            position={ [ 0, 2.25, 2]}
+        >
+            Finish
+            <meshBasicMaterial toneMapped={ false } />
+        </Text>
         {/* Floor */}
         <mesh 
             position={ [ 0, 0, 0] } 
